@@ -363,27 +363,26 @@ LRESULT COpenLiveDlg::OnJoinChannel(WPARAM wParam, LPARAM lParam)
 	m_dlgVideo.CenterWindow();
 	m_dlgVideo.UpdateLangCBox(netToken, lParam);
 
-	VideoCanvas vc;
+	//VideoCanvas vc;
 
-	vc.uid = 0;
-	vc.view = m_dlgVideo.GetLocalVideoWnd();
-	vc.renderMode = RENDER_MODE_TYPE::RENDER_MODE_FIT;
+	//vc.uid = 0;
+	//vc.view = m_dlgVideo.GetLocalVideoWnd();
+	//vc.renderMode = RENDER_MODE_TYPE::RENDER_MODE_FIT;
 
 	//cancel setVideoProfile bitrate since version 2.1.0
-	int nVideoSolution = m_dlgSetup.GetVideoSolution();
+	//int nVideoSolution = m_dlgSetup.GetVideoSolution();
 	//lpRtcEngine->setVideoProfile((VIDEO_PROFILE_TYPE)nVideoSolution, m_dlgSetup.IsWHSwap());
 
-	VideoEncoderConfiguration config;
-	config.bitrate = m_dlgSetup.GetBirate();
-	config.frameRate = (FRAME_RATE)m_dlgSetup.GetFPS();
-	SIZE resolution = m_dlgSetup.GetVideoResolution();
-	config.dimensions.width = resolution.cx;
-	config.dimensions.height = resolution.cy;
-	lpRtcEngine->setVideoEncoderConfiguration(config);
+	//VideoEncoderConfiguration config;
+	//config.bitrate = m_dlgSetup.GetBirate();
+	//config.frameRate = (FRAME_RATE)m_dlgSetup.GetFPS();
+	//SIZE resolution = m_dlgSetup.GetVideoResolution();
+	//config.dimensions.width = resolution.cx;
+	//config.dimensions.height = resolution.cy;
+	//lpRtcEngine->setVideoEncoderConfiguration(config);
 
-	m_dlgVideo.SetWindowText(strChannelName);
-	lpRtcEngine->setupLocalVideo(vc);
-	lpRtcEngine->startPreview();
+	//lpRtcEngine->setupLocalVideo(vc);
+	//lpRtcEngine->startPreview();
 
 	lpAgoraObject->SetToken(netToken.GetToken(lParam));
 

@@ -32,7 +32,7 @@ void CVideoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 
-//	DDX_Control(pDX, IDC_CBXROLE_VIDEO, m_cbxRole);
+	//DDX_Control(pDX, IDC_CBXROLE_VIDEO, m_cbxLang);
 	DDX_Control(pDX, IDC_BTNMIN_VIDEO, m_btnMin);
 	DDX_Control(pDX, IDC_BTNRSTO_VIDEO, m_btnRst);
 	DDX_Control(pDX, IDC_BTNCLOSE_VIDEO, m_btnClose);
@@ -811,7 +811,7 @@ void CVideoDlg::ShowVideo1()
 
 		m_wndLocal.MoveWindow(&m_rcChildVideoArea, FALSE);
 		m_wndLocal.SetParent(&m_wndVideo[0]);
-		m_wndLocal.ShowWindow(SW_SHOW);
+		m_wndLocal.ShowWindow(SW_HIDE);
 		m_wndLocal.SetParent(&m_wndVideo[0]);
 	}
 
@@ -957,16 +957,17 @@ void CVideoDlg::RebindVideoWnd()
 			m_wndVideo[nIndex].SetUID(0);
 	}
 
-	if (m_nScreenMode != SCREEN_VIDEOMULTI) {
-		if (m_listWndInfo.GetCount() <= 1)
-			ShowVideo1();
-		else if (m_listWndInfo.GetCount() > 1 && m_listWndInfo.GetCount() < 4)
-			ShowVideo4();
-		else
-			ShowMulti();
-	}
-	else
-		ShowMulti();
+	ShowVideo1();
+	//if (m_nScreenMode != SCREEN_VIDEOMULTI) {
+	//	if (m_listWndInfo.GetCount() <= 1)
+	//		ShowVideo1();
+	//	else if (m_listWndInfo.GetCount() > 1 && m_listWndInfo.GetCount() < 4)
+	//		ShowVideo4();
+	//	else
+	//		ShowMulti();
+	//}
+	//else
+	//	ShowMulti();
 }
 
 
